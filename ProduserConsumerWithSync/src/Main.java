@@ -1,13 +1,13 @@
 import java.util.LinkedList;
 
-class ProdocerConsumer{
+class Resource{
 	LinkedList<Integer> list = new LinkedList<Integer>();
 	int size = 2;
 	
 	public void produce() {
 		int value = 0;
 		while(true) {
-		synchronized (this) {
+		
 		while(list.size() == size) {
 			try {
 				wait();
@@ -15,9 +15,11 @@ class ProdocerConsumer{
 				e.printStackTrace();
 			}
 		}
+		
 		System.out.println("Producer Produced:"+value);
 		list.add(value++);
 		notify();
+		
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
@@ -25,12 +27,9 @@ class ProdocerConsumer{
 		}
 	}
 	}
-	}
 	
 	public void consume() {
-		int value = 0;
 		while(true) {
-			synchronized (this) {
 		while(list.size() == 0) {
 			try {
 				wait();
@@ -39,7 +38,7 @@ class ProdocerConsumer{
 			}
 		}
 		int val = list.removeFirst();
-		System.out.println("Consumer Consumer:"+val);
+		System.out.println("Consumer Consumed:"+val);
 		notify();
 		try {
 			Thread.sleep(100);
@@ -47,28 +46,33 @@ class ProdocerConsumer{
 			e.printStackTrace();
 		}
 		}
-		}
+	}
+}
+
+class ProduceThread extends Thread{
+	Resource r;
+	public ProduceThread(Resource r) {
+		this.r = r;
+	}
+	public void run() {
+		r.produce();
+	}
+}
+class ConsumeThread extends Thread{
+	Resource r;
+	public ConsumeThread(Resource r) {
+		this.r = r;
+	}
+	public void run() {
+		r.consume();
 	}
 }
 public class Main {
 
 	public static void main(String[] args) {
-		ProdocerConsumer pc = new ProdocerConsumer();
-		Thread p = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				pc.produce();
-			}
-		});
-		Thread c = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				pc.consume();
-			}
-		});
-		
+		Resource r = new Resource();
+		ProduceThread p = new ProduceThread(r);
+		ConsumeThread c = new ConsumeThread(r);
 		p.start();
 		c.start();
 	}
