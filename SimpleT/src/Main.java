@@ -14,10 +14,10 @@ class PrintUpto10 extends Thread{
 			e.printStackTrace();
 		}
 	}
-	public void print() throws InterruptedException {
+	public synchronized void print() throws InterruptedException {
 		for(int i=1;i<=10;i++) {
 			System.out.println(name+"--"+i);
-			Thread.sleep(time);
+			//Thread.sleep(time);
 		}
 		
 	}
@@ -26,7 +26,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		PrintUpto10 p1 = new PrintUpto10("p1",1000);
-		PrintUpto10 p2 = new PrintUpto10("p2",500);
+		PrintUpto10 p2 = new PrintUpto10("p2",1000);
 		p1.start();
 		p2.start();
 
