@@ -1,3 +1,5 @@
+# Code
+```java
 import java.util.LinkedList;
 
 class Resource {
@@ -84,3 +86,36 @@ public class Main {
 	}
 
 }
+```
+# Output
+```console
+Producer Produced:1
+Producer Produced:2
+Consumer Consumed:1
+Consumer Consumed:2
+Producer Produced:3
+Producer Produced:4
+Consumer Consumed:3
+Consumer Consumed:4
+Producer Produced:5
+Producer Produced:6
+Consumer Consumed:5
+Consumer Consumed:6
+Producer Produced:7
+Producer Produced:8
+Consumer Consumed:7
+Consumer Consumed:8
+Producer Produced:9
+Producer Produced:10
+Consumer Consumed:9
+Consumer Consumed:10
+Producer Produced:11
+Producer Produced:12
+Consumer Consumed:11
+Consumer Consumed:12
+Producer Produced:13
+Producer Produced:14
+Consumer Consumed:13
+Consumer Consumed:14
+Producer Produced:15
+```
