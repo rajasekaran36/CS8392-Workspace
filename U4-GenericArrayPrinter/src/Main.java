@@ -1,6 +1,7 @@
 class GenericArrays{
-	<T> void printArray(T[] aArray) {
-		for(T temp:aArray) {
+	<E> void printArray(E[] aArray) {
+		System.out.println("Object Types:"+aArray.getClass().getName());
+		for(E temp:aArray) {
 			System.out.println(temp);
 		}
 	}

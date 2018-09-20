@@ -1,7 +1,7 @@
 
 class GenTest{
-	static <T> void printType(T tObject) {
-		System.out.println(tObject.getClass().getName());
+	static <E> void printType(E eObject) {
+		System.out.println(eObject.getClass().getName());
 	}
 }
 public class Main {

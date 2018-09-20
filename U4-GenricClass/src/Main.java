@@ -5,6 +5,7 @@ class GenTest<T>{
 		this.aObject = c;  
 	}
 	public void printType() {
+		System.out.println("aObject Type");
 		System.out.println(aObject.getClass().getName());
 	}
 }
