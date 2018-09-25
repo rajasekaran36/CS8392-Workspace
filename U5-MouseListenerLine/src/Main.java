@@ -48,13 +48,24 @@ class MyCanvas extends Canvas{
 				// TODO Auto-generated method stub
 				x = me.getX();
 				y = me.getY();
+				int del_x = x - 100;
+				int del_y = y - 100;
+				double inRads = Math.atan2(del_x, del_y);
+				
+				if (inRads < 0)
+			        inRads = Math.abs(inRads);
+			    else
+			        inRads = 2 * Math.PI - inRads;
+				
+				x = (int) (50*Math.cos(Math.toDegrees(inRads)));
+				y = (int) (50*Math.sin(Math.toDegrees(inRads)));
 				repaint();
 			}
 		});
 	}
 	public void paint(Graphics g) {
 		Graphics2D g2d = (Graphics2D)g;
-		Line2D.Float r2d = new Line2D.Float(100, 100, x, y);
+		Line2D.Float r2d = new Line2D.Float(100,100,x,y);
 		g2d.draw(r2d);
 		
 	}

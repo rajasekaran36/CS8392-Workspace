@@ -14,7 +14,7 @@ class MyCanvas extends Canvas{
 		Graphics2D g2d = (Graphics2D)g;
 		Line2D.Float l2d = new Line2D.Float(50F, 50F, 400F, 400F);
 		Rectangle2D.Float r2d = new Rectangle2D.Float(100, 100, 100.67F, 100.657F);
-		Arc2D.Float a2d = new Arc2D.Float(100F, 100F, 300F, 300F, 0F, 90F, Arc2D.OPEN);
+		Arc2D.Float a2d = new Arc2D.Float(100F, 100F, 300F, 300F, 0F, 90F, Arc2D.PIE);
 		Ellipse2D.Float e2d = new Ellipse2D.Float(300F, 300F, 100F, 100F);
 		g2d.setColor(Color.BLUE);
 		g2d.draw(l2d);
@@ -22,6 +22,7 @@ class MyCanvas extends Canvas{
 		g2d.fill(r2d);
 		g2d.draw(r2d);
 		g2d.setColor(Color.GREEN);
+		g2d.fill(a2d);
 		g2d.draw(a2d);
 		g2d.setColor(Color.CYAN);
 		g2d.fill(e2d);
