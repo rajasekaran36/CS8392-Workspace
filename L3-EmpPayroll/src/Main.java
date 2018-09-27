@@ -33,6 +33,23 @@ class Employee {
 	
 	void genPayslip() {
 		
+		double da = (bp/100)*97;
+		double hra = (bp/100)*10;
+		double pf = (bp/100)*12;
+		double staff_club = (bp/100)*0.1;		
+		double gross_pay = bp+da+hra+pf+staff_club;
+		double net_pay = gross_pay-pf-staff_club;
+		
+		System.out.println("Earnings");
+		System.out.println("BP :"+bp);
+		System.out.println("DA :"+da);
+		System.out.println("HRA :"+hra);
+		System.out.println("Deductions");
+		System.out.println("PF :"+pf);
+		System.out.println("Staff Club :"+staff_club);
+		
+		System.out.println("Gross Pay :"+gross_pay);
+		System.out.println("Net Pay :"+net_pay);
 	}
 }
 
@@ -46,7 +63,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Programmer p = new Programmer(50000);
-		p.genPayslip();
+		//p.genPayslip();
 	}
 
 }
