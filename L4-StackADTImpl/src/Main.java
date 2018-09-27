@@ -24,21 +24,31 @@ class MyStack implements StackOps{
 
 	@Override
 	public int pop() {
-		int poped_element = data[top];
-		top--;
-		System.out.println("Current Top"+data[top]);
-		return poped_element;
+		try {
+			int poped_element = data[top];
+			data[top] = 0;
+			top--;
+			System.out.println("Poped Element: "+poped_element);
+			System.out.println("Current Top: "+data[top]);
+			return poped_element;
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("Stack is Empty try some push");
+			top++;
+			return -1;
+		}
 	}
 
 	@Override
 	public int top() {
-		
+	System.out.println("Top Element : "+data[top]);
 		return 0;
 	}
 
 	@Override
 	public void display() {
-		
+		for(int i=data.length-1;i>=0;i--)
+				System.out.println(data[i]);
 	}
 	
 }
@@ -48,8 +58,10 @@ public class Main {
 		aStack.push(100);
 		aStack.push(200);
 		aStack.push(300);
-		aStack.push(400);
-		aStack.push(500);
-		aStack.push(600);
+		aStack.display();
+		aStack.top();
+		aStack.pop();
+		aStack.display();
+		aStack.top();
 	}
 }
