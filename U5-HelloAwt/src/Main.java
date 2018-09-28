@@ -11,25 +11,29 @@ import java.awt.event.WindowEvent;
 class MyFrame extends Frame{
 	Panel p;
 	Label l;
+	Label output;
 	TextField tf;
 	Button b;
 	public MyFrame() {
 		p = new Panel();
-		l = new Label("Name");
+		l = new Label("Number 1");
 		tf = new TextField(10);
 		b = new Button("Click Me");
+		output = new Label("out");
 		b.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String data = tf.getText();
-				l.setText(data);
+				int idata = Integer.parseInt(data);
+				int outdata = idata + 10;
+				output.setText(String.valueOf(outdata));
 			}
 		});
 		p.add(l);
 		p.add(tf);
 		p.add(b);
-		
+		p.add(output);
 		add(p);
 		
 		addWindowListener(new WindowAdapter() {
