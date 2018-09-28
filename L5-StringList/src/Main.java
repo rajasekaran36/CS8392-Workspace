@@ -15,9 +15,26 @@ class StringList{
 	}
 	void searchString(String data) {
 		
-	}
-	void listStrings(char aChar) {
+		boolean isFound = false;
 		
+		for(String aString: aList) {
+			if(aString.equalsIgnoreCase(data)) {
+				isFound = true;
+				break;
+			}
+		}
+		if(isFound)
+			System.out.println(data+" String found");
+		else
+			System.out.println(data + " String not found");
+		
+	}
+	void listStrings(char cChar) {
+		for(String aString:aList) {
+			char fChar = aString.charAt(0);
+			if(fChar == cChar)
+				System.out.println(aString);
+		}
 	}
 	void display() {
 		System.out.println("Display called");
@@ -36,5 +53,8 @@ public class Main{
 		sl.appendString("Cat");
 		sl.appendString("Car");
 		sl.insertInto("Mango", 1);
+		sl.searchString("ball");
+		sl.searchString("hat");
+		sl.listStrings('c');
 	}
 }
