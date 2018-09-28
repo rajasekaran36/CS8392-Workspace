@@ -18,9 +18,6 @@ class MyCanvas extends Canvas{
 }
 class MyWindowAdapter extends WindowAdapter{
 	
-	public void windowActivated(WindowEvent e) {
-		System.out.println("windowActivated");
-	}
 	public void windowClosing(WindowEvent e) {
 		System.out.println("windowClosing");
 		//Method the close the awt window 
