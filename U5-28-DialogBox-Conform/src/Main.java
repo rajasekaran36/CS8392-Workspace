@@ -38,7 +38,7 @@ class MyFrame extends JFrame{
 			public void itemStateChanged(ItemEvent e) {
 				if(cb1.isSelected()) {
 					itemsSelected.add(cb1.getText());
-					JOptionPane.showMessageDialog(new JFrame(),cb1.getText()+" Selected" ,"Alert",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame(),cb1.getText()+" Selected" ,"Alert",JOptionPane.YES_NO_CANCEL_OPTION);
 					cb1.setSelected(true);
 				}
 				else

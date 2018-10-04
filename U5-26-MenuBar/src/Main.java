@@ -29,6 +29,7 @@ class MyFrame extends JFrame{
 	JMenuBar mb;
 	JMenu m,sub;
 	JMenuItem mi1,mi2,mi3,mi4,smi1,smi2;
+	
 	JTextArea output;
 	JPanel scrollpan;
 	public MyFrame() {
@@ -38,14 +39,18 @@ class MyFrame extends JFrame{
 		mi3 = new JMenuItem("Orange");
 		smi1 = new JMenuItem("Tomato");
 		smi2 = new JMenuItem("Potatos");
+		
 		m = new JMenu("Fruits");
 		sub = new JMenu("Vegetables");
+		
 		sub.add(smi1);
 		sub.add(smi2);
+		
 		m.add(mi1);
 		m.add(mi2);
 		m.add(mi3);
 		m.add(sub);
+		
 		mi1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -53,8 +58,11 @@ class MyFrame extends JFrame{
 				output.setText("Apple Selected");
 			}
 		});
+		
 		mb = new JMenuBar();
+		
 		mb.add(m);
+		
 		setJMenuBar(mb);
 		setLayout(new BorderLayout());
 		scrollpan = new JPanel();
