@@ -1,5 +1,5 @@
 
-class GenTest<T>{
+class GenTest<T> extends Num{
 	T aObject;
 	public GenTest(T c){
 		this.aObject = c;  

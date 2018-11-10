@@ -1,6 +1,7 @@
 class Table {
-	synchronized static void printTable(int n) {
+	 void printTable(int n) {
 		System.out.println("printTableEntry");
+		synchronized(this){
 		for(int i=1;i<5;i++) {
 			System.out.println(i+" x "+n+" = "+n*i);
 			try {
@@ -9,6 +10,7 @@ class Table {
 				e.printStackTrace();
 			}
 		
+		}
 		}
 		System.out.println("printTableExit");
 }
@@ -19,7 +21,7 @@ class Thread1 extends Thread{
 		this.t = t;
 	}
 	public void run() {
-		Table.printTable(5);
+		t.printTable(5);
 	}
 }
 class Thread2 extends Thread{
@@ -28,7 +30,7 @@ class Thread2 extends Thread{
 		this.t = t;
 	}
 	public void run() {
-		Table.printTable(100);
+		t.printTable(100);
 	}
 }
 public class Main {

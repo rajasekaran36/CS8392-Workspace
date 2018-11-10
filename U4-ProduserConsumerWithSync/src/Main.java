@@ -7,18 +7,20 @@ class Resource {
 	synchronized public void produce() {
 		int value = 0;
 		while (true) {
-
+			/*
 			while (list.size() == limit) {
+				
 				try {
 					wait();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
+			*/
 			value++;
 			System.out.println("Producer Produced:" + value);
 			list.add(value);
-			notify();
+			//notify();
 
 			try {
 				Thread.sleep(100);
@@ -29,17 +31,20 @@ class Resource {
 	}
 
 	synchronized public void consume() {
+		/*
 		while (true) {
 			while (list.size() == 0) {
 				try {
-					wait();
+					//wait();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
+			
+			*/
 			int val = list.removeFirst();
 			System.out.println("Consumer Consumed:" + val);
-			notify();
+			//notify();
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -47,8 +52,6 @@ class Resource {
 			}
 		}
 	}
-}
-
 class ProduceThread extends Thread {
 	Resource r;
 
